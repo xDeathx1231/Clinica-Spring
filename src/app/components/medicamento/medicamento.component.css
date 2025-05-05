@@ -1,0 +1,173 @@
+/* Color de fondo para la tabla */
+.table {
+    background-color: #f9f9f9; /* Gris claro para un fondo limpio */
+    border-collapse: collapse;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Colores para los encabezados */
+  .thead-light th {
+    background-color: #e0f7fa; /* Azul suave */
+    color: #00796b; /* Verde oscuro */
+    font-weight: bold;
+  }
+  
+  /* Efecto hover sobre las filas */
+  .table-hover tbody tr:hover {
+    background-color: #b2dfdb; /* Color verde suave cuando el cursor pasa sobre la fila */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilo de las filas */
+  tbody td {
+    color: #00796b; /* Verde oscuro */
+    vertical-align: middle;
+    padding: 12px;
+  }
+  
+  /* Colores para los botones */
+  .btn-outline-success {
+    color: #388e3c;
+    border-color: #388e3c;
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #388e3c;
+    color: white;
+  }
+  
+  .btn-outline-danger {
+    color: #d32f2f;
+    border-color: #d32f2f;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #d32f2f;
+    color: white;
+  }
+  
+  .btn-primary {
+    background-color: #00796b;
+    border-color: #00796b;
+  }
+  
+  .btn-primary:hover {
+    background-color: #004d40;
+    border-color: #004d40;
+  }
+  
+  /* Estilos para los botones circulares */
+  .btn-circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .btn-circle img {
+    width: 30px;  /* Ajusta el tamaño de la imagen */
+    height: 30px; /* Ajusta el tamaño de la imagen */
+  }
+  
+  /* Animación para la tabla */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  /* Estilos generales del modal */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: modalFadeIn 0.5s ease-in-out;
+  }
+  
+  /* Cabecera del modal */
+  .modal-header {
+    background-color: #00796b;
+    color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .modal-header .btn-close {
+    color: #fff;
+  }
+  
+  /* Cuerpo del modal */
+  .modal-body {
+    padding: 20px;
+    font-size: 14px;
+  }
+  
+  .modal-body input {
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  /* Pie de modal con botones */
+  .modal-footer {
+    border-top: 1px solid #ddd;
+    padding: 10px 20px;
+    text-align: right;
+  }
+  
+  .modal-footer .btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+  }
+  
+  /* Botones de acción */
+  .btn-primary {
+    background-color: #00796b;
+    border-color: #00796b;
+  }
+  
+  .btn-primary:hover {
+    background-color: #004d40;
+    border-color: #004d40;
+  }
+  
+  .btn-secondary {
+    background-color: #f1f1f1;
+    color: #00796b;
+    border-color: #ccc;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #ccc;
+    color: #00796b;
+  }
+  
+  /* Animación de entrada para el modal */
+  @keyframes modalFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Fondo del modal */
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  

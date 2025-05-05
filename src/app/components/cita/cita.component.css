@@ -1,0 +1,183 @@
+/* Efecto de desvanecimiento para la tabla */
+.fade-in {
+    opacity: 0; /* Comienza invisible */
+    transition: opacity 0.8s ease-in-out; /* Suaviza el cambio de opacidad */
+  }
+  
+  /* Cuando los datos están listos */
+  .fade-in.loaded {
+    opacity: 1; /* Hace la tabla visible */
+  }
+  
+  /* Estilo General de la Tabla */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden;
+  }
+  
+  .table-bordered {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9; /* Fondo claro para filas impares */
+  }
+  
+  .table-striped tbody tr:nth-of-type(even) {
+    background-color: #eaf4ff; /* Fondo azul claro para filas pares */
+  }
+  
+  .table tbody tr:hover {
+    background-color: #d6efff; /* Hover */
+    cursor: pointer;
+  }
+  
+  /* Encabezados de la Tabla */
+  .table th {
+    background-color: #007bff; /* Azul para el encabezado */
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Celdas de la Tabla */
+  .table td {
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+  }
+  
+  /* Colores para los Estados */
+  .estado-pendiente {
+    background-color: #fff3cd; /* Fondo amarillo claro */
+    color: #856404; /* Amarillo oscuro */
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .estado-cancelada {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Rojo oscuro */
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .estado-completada {
+    background-color: #d4edda; /* Fondo verde claro */
+    color: #155724; /* Verde oscuro */
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  /* Botones */
+  .btn-primary {
+    background-color: #007bff; /* Azul */
+    border-color: #007bff;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Rojo */
+    border-color: #dc3545;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  /* Modal */
+  .modal-header {
+    background-color: #007bff; /* Azul */
+    color: #fff;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .modal-footer {
+    border-top: none;
+  }
+  
+  .btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+  }
+  
+  .btn-close:hover {
+    color: #555;
+  }
+  
+  /* Campos del Formulario en el Modal */
+  .form-label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  textarea.form-control {
+    resize: none;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .table th,
+    .table td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .btn {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
+  

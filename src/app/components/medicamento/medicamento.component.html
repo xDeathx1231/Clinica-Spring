@@ -1,0 +1,81 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Mantenimiento de Medicamentos</h2>
+    
+    <div class="d-flex justify-content-end mb-3">
+      <!-- Botón de nuevo medicamento con ícono -->
+      <button class="btn btn-primary btn-circle" (click)="abrirModal('Crear')" aria-label="Nuevo Medicamento" style="font-size: 40px; align-items: center; justify-content: center;">
+        +
+      </button>
+    </div>
+  
+    <div class="col-12">
+      <table class="table table-hover table-bordered minimalista animate__animated animate__fadeIn">
+        <thead class="thead-light">
+          <tr>
+            <th>#</th>
+            <th>Nombres</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lista of listaMedicamentos; index as i" class="animate__animated animate__fadeInUp">
+            <td>{{ i + 1 }}</td>
+            <td>{{ lista.nombre }}</td>
+            <td>{{ lista.descripcion }}</td>
+            <td>{{ lista.cantidad }}</td>
+            <td>{{ lista.precio | currency }}</td>
+            <td>
+              <button type="button" class="btn btn-outline-success" (click)="abrirModal('Actualizar', lista)">
+                <i class="bi bi-pencil-square"></i> Editar
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline-danger" (click)="eliminarMedicamento(lista.id)">
+                <i class="bi bi-trash"></i> Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Modal Estilizado -->
+  <div class="modal fade" id="modalMedicamento" tabindex="-1" aria-labelledby="modalMedicamentoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content rounded-4 shadow-lg">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalMedicamentoLabel">{{ titulo }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formMedicamento">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" formControlName="nombre" />
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <input type="text" class="form-control" formControlName="descripcion" />
+            </div>
+            <div class="mb-3">
+              <label for="cantidad" class="form-label">Cantidad</label>
+              <input type="number" class="form-control" formControlName="cantidad" />
+            </div>
+            <div class="mb-3">
+              <label for="precio" class="form-label">Precio</label>
+              <input type="number" class="form-control" formControlName="precio" step="0.01" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="guardarMedicamento()">{{ botonAccion }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

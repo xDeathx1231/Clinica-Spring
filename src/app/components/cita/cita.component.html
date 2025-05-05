@@ -1,0 +1,114 @@
+<div class="container mt-5 fade-in" [ngClass]="{ 'loaded': datosCargados }">
+  <h2 class="text-center mb-4">Mantenimiento de Citas</h2>
+  <div class="text-end mb-3">
+    <button class="btn btn-success" (click)="abrirModal('Crear')">
+      + Crear Cita
+    </button>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Paciente</th>
+        <th>Médico</th>
+        <th>Fecha y Hora</th>
+        <th>Motivo</th>
+        <th>Estado</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of listaCitas; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ cita.paciente.nombre }}</td>
+        <td>{{ cita.medico.nombre }}</td>
+        <td>{{ cita.fechaHora | date: 'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{ cita.motivo }}</td>
+        <td
+          [ngClass]="{
+            'estado-pendiente': cita.estado === 'PENDIENTE',
+            'estado-cancelada': cita.estado === 'CANCELADA',
+            'estado-completada': cita.estado === 'COMPLETADA'
+          }"
+        >
+          {{ cita.estado }}
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="abrirModal('Actualizar', cita)">Editar</button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminarCita(cita.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+  <!-- Modal para Crear o Editar Cita -->
+  <div class="modal fade" id="modalCita" tabindex="-1" aria-labelledby="modalCitaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCitaLabel">{{ titulo }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formCita" (ngSubmit)="guardarCita()">
+            <div class="mb-3">
+              <label for="paciente" class="form-label">Paciente</label>
+              <select formControlName="paciente" id="paciente" class="form-select" required>
+                <option *ngFor="let paciente of listaPacientes" [value]="paciente.id">
+                  {{ paciente.nombre }}
+                </option>
+              </select>
+            </div>
+          
+            <div class="mb-3">
+              <label for="medico" class="form-label">Médico</label>
+              <select formControlName="medico" id="medico" class="form-select" required>
+                <option *ngFor="let medico of listaMedicos" [value]="medico.id">
+                  {{ medico.nombre }}
+                </option>
+              </select>
+            </div>
+          
+            <div class="mb-3">
+              <label for="fechaHora" class="form-label">Fecha y Hora</label>
+              <input 
+                type="datetime-local" 
+                formControlName="fechaHora" 
+                class="form-control" 
+                required 
+              />
+            </div>
+            
+          
+            <div class="mb-3">
+              <label for="motivo" class="form-label">Motivo</label>
+              <textarea formControlName="motivo" id="motivo" class="form-control" required></textarea>
+            </div>
+          
+            <div class="mb-3">
+              <label for="estado" class="form-label">Estado</label>
+              <select formControlName="estado" class="form-select" required>
+                <option value="PENDIENTE">Pendiente</option>
+                <option value="CANCELADA">Cancelada</option>
+                <option value="COMPLETADA">Completada</option>
+              </select>
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">{{ botonAccion }}</button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

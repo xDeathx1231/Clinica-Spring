@@ -1,0 +1,117 @@
+<div class="container mt-4">
+    <div class="row align-items-center">
+     
+      <div class="col-md-6">
+        <h2>Registrar Paciente</h2>
+        <form (ngSubmit)="crearPaciente()" #pacienteForm="ngForm">
+          
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              [(ngModel)]="paciente.nombre"
+              name="nombre"
+              required
+              #nombre="ngModel"
+            />
+            <div *ngIf="nombre.invalid && nombre.touched" class="text-danger">
+              El nombre es obligatorio.
+            </div>
+          </div>
+  
+         
+          <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input
+              type="number"
+              id="edad"
+              class="form-control"
+              [(ngModel)]="paciente.edad"
+              name="edad"
+              required
+              min="1"
+              #edad="ngModel"
+            />
+            <div *ngIf="edad.invalid && edad.touched" class="text-danger">
+              La edad es obligatoria y debe ser un número positivo.
+            </div>
+          </div>
+  
+          
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input
+              type="text"
+              id="direccion"
+              class="form-control"
+              [(ngModel)]="paciente.direccion"
+              name="direccion"
+              required
+              #direccion="ngModel"
+            />
+            <div *ngIf="direccion.invalid && direccion.touched" class="text-danger">
+              La dirección es obligatoria.
+            </div>
+          </div>
+  
+          
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input
+              type="tel"
+              id="telefono"
+              class="form-control"
+              [(ngModel)]="paciente.telefono"
+              name="telefono"
+              required
+              pattern="^\d{9}$"
+              #telefono="ngModel"
+            />
+            <div *ngIf="telefono.invalid && telefono.touched" class="text-danger">
+              El teléfono es obligatorio y debe ser un número de 9 dígitos.
+            </div>
+          </div>
+  
+         
+          <div class="form-group">
+            <label for="correo">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="correo"
+              class="form-control"
+              [(ngModel)]="paciente.correo"
+              name="correo"
+              required
+              #correo="ngModel"
+            />
+            <div *ngIf="correo.invalid && correo.touched" class="text-danger">
+              El correo es obligatorio y debe ser válido.
+            </div>
+          </div>
+  
+          
+          <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary" [disabled]="pacienteForm.invalid">Registrar Paciente</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+  
+     
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="https://img.freepik.com/vector-gratis/folleto-vacunacion-contra-coronavirus_23-2148909177.jpg?t=st=1734685361~exp=1734688961~hmac=afe09aa393aad4ce120a103ce5da49cd1c9bfe12cd044f5bba14ed32c8e23cef&w=740" class="image-slide" alt="Imagen 1">
+          <img src="https://img.freepik.com/vector-gratis/folleto-vacunacion-contra-coronavirus_23-2148909175.jpg?t=st=1734685645~exp=1734689245~hmac=2a28bfddf8dda602b61e74ba1bedc7981db85561421314f8fd083be84885e4bc&w=740" class="image-slide" alt="Imagen 2">
+          <img src="https://img.freepik.com/psd-gratis/viajando-plantilla-cartel-mascara_23-2148920942.jpg?t=st=1734686060~exp=1734689660~hmac=2399a2b0369697472188e1cbaeba30d488c3e1ab4cda9ba8ed489c2e0d62acfa&w=740" class="image-slide" alt="Imagen 3">
+        </div>
+        
+          
+        </div>
+        
+      </div>
+    </div>
+  
+  
+  

@@ -1,0 +1,5 @@
+/* Esto oculta el navbar cuando estamos en el home */
+body.home #main-navbar {
+    display: none;
+  }
+  

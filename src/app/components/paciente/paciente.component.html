@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <div class="mb-4">
+    <div class="d-flex justify-content-between">
+      
+      <button class="btn btn-lg btn-gradient-primary" (click)="crearPaciente()">
+        <i class="fas fa-plus"></i> Crear Nuevo Paciente
+      </button>
+      
+      
+      <div class="d-flex">
+        <input 
+          type="text" 
+          class="form-control d-inline-block w-50" 
+          placeholder="Buscar por nombre..."
+          [(ngModel)]="busqueda" 
+        />
+        <button class="btn btn-lg btn-gradient-primary ml-3" (click)="buscarPaciente()">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-3 mb-4" *ngFor="let lista of listaPacientes; index as i">
+      <div class="card patient-card">
+        <div class="card-body text-center">
+          <img [src]="lista.imagen" alt="Imagen de {{ lista.nombre }}" class="img-thumbnail rounded-circle patient-img mb-3">
+          <h5 class="card-title">{{ lista.nombre }}</h5>
+          <p class="card-text">ID: {{ lista.id }}</p>
+          <p class="card-text">Edad: {{ lista.edad }} años</p>
+          <p class="card-text">Dirección: {{ lista.direccion }}</p>
+          <p class="card-text">Teléfono: {{ lista.telefono }}</p>
+          <p class="card-text">Correo: {{ lista.correo }}</p>
+          <div class="btn-container">
+            <button class="btn btn-sm btn-detalles" (click)="verDetalles(lista)">
+              <i class="fas fa-info-circle"></i> Detalles
+            </button>
+            <button class="btn btn-sm btn-editar" (click)="editarPaciente(lista.id)">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="eliminarPaciente(lista.id)">
+              <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="container">
+    <br>
+    <div class="col-12">
+      <div class="row section-banner">
+        <div class="col-6">
+          <h2>Listado de Médicos</h2>
+        </div>
+        <div class="col-6 btn-agregar">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMedico" (click)="titulo('Crear', null)">
+            Nuevo Médico
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row p-5">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Especialidad</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Horario</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lista of listaMedico; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ lista.nombre }}</td>
+              <td>{{ lista.especialidad }}</td>
+              <td>{{ lista.telefono }}</td>
+              <td>{{ lista.correo }}</td>
+              <td>{{ lista.horario }}</td>
+              <td>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalMedico" (click)="titulo('Editar', lista.id)">Editar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminarMedicos(lista.id)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Modal -->
+    <form [formGroup]="formMedico" (ngSubmit)="crearMedico(nameBoton)">
+      <div class="modal fade" id="modalMedico">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ title }}</h5>
+              <button type="button" class="btn-close" (click)="cerrarBoton()"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" required>
+                    <label for="Nombre">Nombre</label>
+                    <div *ngIf="formMedico.get('nombre')?.invalid && formMedico.get('nombre')?.touched" class="text-danger">
+                      El nombre es obligatorio.
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <select class="form-select" formControlName="especialidad">
+                      <option value="" disabled selected>Selecciona la especialidad</option>
+                      <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+                    </select>
+                    <label for="Especialidad">Especialidad</label>
+                    <div *ngIf="formMedico.get('especialidad')?.invalid && formMedico.get('especialidad')?.touched" class="text-danger">
+                      La especialidad es obligatoria.
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Teléfono" formControlName="telefono">
+                    <label for="Telefono">Teléfono</label>
+                    <div *ngIf="formMedico.get('telefono')?.invalid && formMedico.get('telefono')?.touched" class="text-danger">
+                      El teléfono debe seguir el formato xxx-xxxx.
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="Correo" formControlName="correo">
+                    <label for="Correo">Correo</label>
+                    <div *ngIf="formMedico.get('correo')?.invalid && formMedico.get('correo')?.touched" class="text-danger">
+                      El correo debe tener un formato válido.
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Horario (Ej: 8:00 AM - 2:00 PM)" formControlName="horario">
+                    <label for="Horario">Horario</label>
+                    <div *ngIf="formMedico.get('horario')?.invalid && formMedico.get('horario')?.touched" class="text-danger">
+                      El horario debe seguir el formato x:xx AM - x:xx PM.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="cerrarBoton()">Cerrar</button>
+              <button type="submit" class="btn btn-primary" [disabled]="formMedico.invalid">{{ nameBoton }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

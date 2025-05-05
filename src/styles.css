@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-image: url('https://img.freepik.com/vector-premium/fondo-molecula-cientifica-medicina-ciencia-tecnologia-quimica-olas-fluyen_230610-193.jpg?w=740'); /* URL de la imagen */
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    margin: 0; 
+    padding: 0; 
+  }
+  
+
+
+ 
+  

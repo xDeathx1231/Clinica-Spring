@@ -1,0 +1,203 @@
+/* Estilos generales de la barra */
+
+  .navbar {
+    position: relative;
+    background-image: url('/assets/images/banner.png'); /* La ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100px; /* Ajustar la altura para reducir el tamaño de la imagen */
+    color: white; /* Cambia el color del texto para hacerlo visible sobre la imagen */
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Asegúrate de que no se salga de los bordes */
+  }
+  /* Contenedor de la barra */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    max-width: 1200px; /* Limitar el ancho máximo para evitar que se estire demasiado */
+  }
+  
+  /* Logo y nombre de la clínica */
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar el logo y el nombre */
+    margin-right: auto; /* Asegura que el logo se alinee correctamente */
+  }
+  
+  .navbar-logo img {
+    width: 30px; /* Ajusta el tamaño del logo */
+    margin-right: 10px;
+  }
+  
+  .navbar-logo span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #003366;
+  }
+  
+  /* Dirección */
+  .navbar-location {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  /* Contacto y redes sociales */
+  .navbar-contact {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-contact span {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .social-media a {
+    color: #555;
+    margin: 0 10px;
+    font-size: 18px;
+  }
+  
+  .social-media a:hover {
+    color: #3498db; /* Color de hover */
+  }
+  
+  /* Estilo para el botón "Reservar Cita" */
+  .navbar-button {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .reserve-button {
+    background-color: #27ae60; /* Verde de la barra */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reserve-button:hover {
+    background-color: #2ecc71; /* Cambio de color cuando pasa el mouse */
+  }
+  /* Barra superior */
+.navbar {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .navbar-logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .navbar-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+  
+  .navbar-location {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .navbar-contact {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .navbar-contact span {
+    margin-right: 15px;
+  }
+  
+  .social-media {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-media a {
+    font-size: 1.2rem;
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .social-media a:hover {
+    color: #0056b3;
+  }
+  
+  .navbar-button {
+    display: flex;
+    align-items: center;
+  }
+  
+  .reserve-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .reserve-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Barra de navegación principal */
+  .navbar-main {
+    background-color: #007bff;
+    padding: 10px 20px;
+  }
+  
+  .navbar-main-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .nav-link {
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  .nav-link:hover {
+    color: #ffd700;
+  }
+  .some-class {
+    background-image: url('/assets/images/logo.png');
+    background-size: cover;
+  }
+  

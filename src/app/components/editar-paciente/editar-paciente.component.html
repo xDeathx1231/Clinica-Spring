@@ -1,0 +1,89 @@
+<div class="container mt-4">
+  <h2>Editar Paciente</h2>
+  <form (ngSubmit)="guardarCambios()" #pacienteForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        [(ngModel)]="paciente.nombre"
+        name="nombre"
+        class="form-control"
+        required
+        #nombre="ngModel"
+      />
+      <div *ngIf="nombre.invalid && nombre.touched" class="text-danger">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad</label>
+      <input
+        type="number"
+        id="edad"
+        [(ngModel)]="paciente.edad"
+        name="edad"
+        class="form-control"
+        required
+        min="1"
+        #edad="ngModel"
+      />
+      <div *ngIf="edad.invalid && edad.touched" class="text-danger">
+        La edad es obligatoria y debe ser un número positivo.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="direccion">Dirección</label>
+      <input
+        type="text"
+        id="direccion"
+        [(ngModel)]="paciente.direccion"
+        name="direccion"
+        class="form-control"
+        required
+        #direccion="ngModel"
+      />
+      <div *ngIf="direccion.invalid && direccion.touched" class="text-danger">
+        La dirección es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input
+        type="tel"
+        id="telefono"
+        [(ngModel)]="paciente.telefono"
+        name="telefono"
+        class="form-control"
+        required
+        pattern="^\d{9}$"
+        #telefono="ngModel"
+      />
+      <div *ngIf="telefono.invalid && telefono.touched" class="text-danger">
+        El teléfono es obligatorio y debe ser un número de 9 dígitos.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="correo">Correo Electrónico</label>
+      <input
+        type="email"
+        id="correo"
+        [(ngModel)]="paciente.correo"
+        name="correo"
+        class="form-control"
+        required
+        #correo="ngModel"
+      />
+      <div *ngIf="correo.invalid && correo.touched" class="text-danger">
+        El correo es obligatorio y debe ser válido.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="pacienteForm.invalid">Guardar Cambios</button>
+    <button type="button" class="btn btn-secondary mt-3" (click)="cancelar()">Cancelar</button>
+  </form>
+</div>
